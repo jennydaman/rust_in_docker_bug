@@ -1,0 +1,8 @@
+FROM rust:1.71.0-slim-bullseye
+
+RUN cargo new --bin /app
+WORKDIR /app
+COPY Cargo.lock Cargo.toml ./
+RUN cargo build
+COPY src src
+RUN cargo build
